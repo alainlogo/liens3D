@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html,body{
+    background-color: black;
+    font-family: 'wak';
+
+}
+
+a{
+    color: white;
+    font-size: 25px;
+}
+
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    user-select: none;
+    counter-reset: menucounter;
+}
+.menu-item{
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* .menu-item > div{
+    perspective: 1000px;
+    transform-style:preserve-3d ;
+    overflow: hidden;
+} */
+.menu-item::before{
+    position: absolute;
+    left: -20px;
+    top: 0;
+    font-size: 10px;
+}
+.menu-item-text{
+    pointer-events: none;
+    display: block;
+    line-height: 1;
+    position: relative;
+    font-size: 2rem;
+}
+
+.menu-item > div:nth-child(1) span{
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    transition-delay: calc(0.05s * var(--index));
+    transform-origin: bottom;
+    display: inline-block;
+}
+
+.menu-item > div:nth-child(2) span{
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    transition-delay: calc(0.05s * var(--index));
+    transform-origin: top;
+    display: inline-block;
+    transform: translate3d(0, 100%, 0) rotateX(-90deg);
+}
+
+.menu-item:hover > div:nth-child(1) span{
+    transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+.menu-item:hover > div:nth-child(2) span{
+    transform: translate3d(0, 0%, 0) rotateX(0deg);
+}
+span{
+    font-size: 2rem;
+}
